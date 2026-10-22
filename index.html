@@ -4,10 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Peaked Nirvana Tarot | Daily Fortunes & Card Readings</title>
-<meta http-equiv="refresh" content="0; url=https://raw.githubusercontent.com/PeakNirvana/peaked-nirvana-tarot/main/standalone.html">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+body { background: #0a0618; color: #f0e6ff; font-family: 'Crimson Text', serif; text-align: center; padding: 2rem; }
+h1 { font-family: 'Cinzel', serif; color: #d4af37; letter-spacing: 0.2em; }
+button { background: #d4af37; color: #1a0a2e; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 50px; cursor: pointer; margin: 1rem; }
+.reading { background: rgba(45,27,78,0.5); border: 1px solid #c9a0ff; border-radius: 12px; padding: 1.5rem; max-width: 500px; margin: 1.5rem auto; }
+</style>
 </head>
 <body>
-<p>Redirecting to the full interactive Tarot site...</p>
-<p><a href="standalone.html">Click here if not redirected</a></p>
+<h1>PEAKED NIRVANA</h1>
+<p style="font-style:italic; color:#c9a0ff;">Tarot Cards & Cosmic Fortunes</p>
+<p>Focus on a question, then draw.</p>
+<button onclick="drawCard()">Draw Your Card</button>
+<div id="result"></div>
+<footer style="margin-top:3rem; color:#666;">Full version with art & social pack available in the repo downloads.</footer>
+<script>
+const cards = [
+  {name:'The Fool', u:'New beginnings. Take the leap.', r:'Recklessness. Pause.'},
+  {name:'The Magician', u:'Manifestation. You have what you need.', r:'Scattered energy.'},
+  {name:'The High Priestess', u:'Intuition. Listen within.', r:'Ignored intuition.'},
+  {name:'The Empress', u:'Abundance and creativity.', r:'Creative block.'},
+  {name:'The Emperor', u:'Structure and authority.', r:'Rigidity.'},
+  {name:'The Lovers', u:'Love and aligned choices.', r:'Disharmony.'},
+  {name:'Death', u:'Transformation. Let the old die.', r:'Resistance to change.'},
+  {name:'The Star', u:'Hope and healing.', r:'Discouragement.'},
+  {name:'The Sun', u:'Joy and success.', r:'Temporary clouds.'},
+  {name:'The World', u:'Completion and wholeness.', r:'Incomplete cycle.'}
+];
+function drawCard() {
+  const c = cards[Math.floor(Math.random()*cards.length)];
+  const rev = Math.random() > 0.5;
+  document.getElementById('result').innerHTML = '<div class="reading"><h2 style="color:#d4af37;">'+c.name+'</h2><p><em>'+(rev?'Reversed':'Upright')+'</em></p><p>'+(rev?c.r:c.u)+'</p></div>';
+}
+</script>
 </body>
 </html>
